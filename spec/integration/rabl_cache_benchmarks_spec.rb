@@ -29,6 +29,7 @@ describe "Rabl Cache Benchmarks" do
   end
 
   def benchmark(source="")
+    puts ""
     puts "Benchmarking '#{source}'..."
 
     # Start with fresh cache
