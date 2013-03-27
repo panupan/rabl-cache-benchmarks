@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Rabl Cache Benchmarks" do  
   let(:num_trials)          { 10    }
   let(:num_depth)           { 5     }
-  let(:rebuild_from_cache)  { false }
+  let(:rebuild_from_cache)  { true  }
 
   before :all do
     @expectated = nil
@@ -68,10 +68,6 @@ describe "Rabl Cache Benchmarks" do
 
   it "child extends - caching on but 100% misses" do
     self.benchmark "employees/with_child_extends_3"
-  end
-
-  it "child extends - caching on with duplicate calls" do
-    self.benchmark "employees/with_child_extends_4"
   end
 
   it "node partial - caching off" do
