@@ -7,104 +7,194 @@ $ rspec spec
 
 ```
 Rabl Cache Benchmarks
-Rabl VERSION:        0.8.1
+=====================
 num_trials:          10
-num_depth:           5 
-rebuild_from_caches: true
-
-Creating employees... 618 created!
+num_depth:           5 (618 employees)
+rebuild_from_cache:  true
+version:             0.8.1
 
 
 Benchmarking 'employees/with_child_extends_1'...
-#1: 0.9138s
-#2: 0.5746s
-#3: 0.5727s
-#4: 0.5782s
-#5: 0.5792s
-#6: 0.5835s
-#7: 0.579s
-#8: 0.5774s
-#9: 0.5787s
-#10: 0.5789s
-Total: 6.1159s
-AVG:   0.6116s
-  child extends - no caching
+run #1: 0.9232s
+run #2: 0.5833s
+run #3: 0.5837s
+run #4: 0.6537s
+run #5: 0.6555s
+run #6: 0.5919s
+run #7: 0.5886s
+run #8: 0.5806s
+run #9: 0.5833s
+run #10: 0.593s
+AVG:   0.6337s
+  child extends - caching off
 
 Benchmarking 'employees/with_child_extends_2'...
-#1: 0.8344s
-#2: 0.7559s
-#3: 0.7442s
-#4: 0.7609s
-#5: 0.7587s
-#6: 0.8003s
-#7: 0.7813s
-#8: 0.7815s
-#9: 0.7803s
-#10: 0.7843s
-Total: 7.7819s
-AVG:   0.7782s
-  child extends - cache miss penalty
+run #1: 0.8438s
+run #2: 0.744s
+run #3: 0.7423s
+run #4: 0.7669s
+run #5: 0.7608s
+run #6: 0.7765s
+run #7: 0.776s
+run #8: 0.7715s
+run #9: 0.7753s
+run #10: 0.7715s
+AVG:   0.7729s
+  child extends - caching on
 
 Benchmarking 'employees/with_child_extends_3'...
-#1: 0.7864s
-#2: 0.7805s
-#3: 0.7893s
-#4: 0.7863s
-#5: 0.7829s
-#6: 0.7847s
-#7: 0.7796s
-#8: 0.743s
-#9: 0.7789s
-#10: 0.7816s
-Total: 7.7932s
-AVG:   0.7793s
-  child extends - caching enabled
+run #1: 0.7824s
+run #2: 0.7851s
+run #3: 0.7756s
+run #4: 0.7765s
+run #5: 0.7744s
+run #6: 0.7735s
+run #7: 0.7752s
+run #8: 0.7837s
+run #9: 0.7392s
+run #10: 0.7852s
+AVG:   0.7751s
+  child extends - caching on but 100% misses
 
 Benchmarking 'employees/with_child_extends_4'...
-#1: 0.7018s
-#2: 0.1742s
-#3: 0.1658s
-#4: 0.1991s
-#5: 0.1556s
-#6: 0.1953s
-#7: 0.1468s
-#8: 0.1884s
-#9: 0.144s
-#10: 0.1864s
-Total: 2.2573s
-AVG:   0.2257s
-  child extends - cache before extend (strange)
+run #1: 0.7373s
+run #2: 0.178s
+run #3: 0.15s
+run #4: 0.1866s
+run #5: 0.1352s
+run #6: 0.184s
+run #7: 0.1452s
+run #8: 0.187s
+run #9: 0.1344s
+run #10: 0.1835s
+AVG:   0.2221s
+  child extends - caching on with duplicate calls
 
 Benchmarking 'employees/with_node_partial_1'...
-#1: 0.2178s
-#2: 0.2673s
-#3: 0.2923s
-#4: 0.2715s
-#5: 0.2775s
-#6: 0.2605s
-#7: 0.2815s
-#8: 0.2724s
-#9: 0.2761s
-#10: 0.2785s
-Total: 2.6954s
-AVG:   0.2695s
-  node partial - no caching
+run #1: 0.214s
+run #2: 0.2758s
+run #3: 0.3096s
+run #4: 0.2685s
+run #5: 0.2909s
+run #6: 0.261s
+run #7: 0.2783s
+run #8: 0.2852s
+run #9: 0.28s
+run #10: 0.2832s
+AVG:   0.2747s
+  node partial - caching off
 
 Benchmarking 'employees/with_node_partial_2'...
-#1: 0.4497s
-#2: 0.4629s
-#3: 0.4263s
-#4: 0.434s
-#5: 0.4044s
-#6: 0.4544s
-#7: 0.4209s
-#8: 0.4211s
-#9: 0.4366s
-#10: 0.4396s
-Total: 4.35s
-AVG:   0.435s
-  node partial - caching enabled
+run #1: 0.447s
+run #2: 0.4722s
+run #3: 0.4242s
+run #4: 0.4454s
+run #5: 0.4049s
+run #6: 0.4464s
+run #7: 0.4353s
+run #8: 0.4413s
+run #9: 0.4388s
+run #10: 0.4439s
+AVG:   0.44s
+  node partial - caching on
 
-Finished in 56.7 seconds
+Finished in 56.9 seconds
+6 examples, 0 failures
+```
+
+```
+Rabl Cache Benchmarks
+=====================
+num_trials:          10
+num_depth:           5 (618 employees)
+rebuild_from_cache:  false
+version:             0.8.1
+
+
+Benchmarking 'employees/with_child_extends_1'...
+run #1: 0.9586s
+run #2: 0.5957s
+run #3: 0.5921s
+run #4: 0.5929s
+run #5: 0.6001s
+run #6: 0.6177s
+run #7: 0.6056s
+run #8: 0.5918s
+run #9: 0.5793s
+run #10: 0.6538s
+AVG:   0.6388s
+  child extends - caching off
+
+Benchmarking 'employees/with_child_extends_2'...
+run #1: 0.8936s
+run #2: 0.0168s
+run #3: 0.0425s
+run #4: 0.0156s
+run #5: 0.0135s
+run #6: 0.0169s
+run #7: 0.0477s
+run #8: 0.0062s
+run #9: 0.006s
+run #10: 0.0059s
+AVG:   0.1065s
+  child extends - caching on
+
+Benchmarking 'employees/with_child_extends_3'...
+run #1: 0.8397s
+run #2: 0.7579s
+run #3: 0.7646s
+run #4: 0.7726s
+run #5: 0.7822s
+run #6: 0.7835s
+run #7: 0.7784s
+run #8: 0.8043s
+run #9: 0.7845s
+run #10: 0.7864s
+AVG:   0.7854s
+  child extends - caching on but 100% misses
+
+Benchmarking 'employees/with_child_extends_4'...
+run #1: 0.6976s
+run #2: 0.0133s
+run #3: 0.0393s
+run #4: 0.0144s
+run #5: 0.0136s
+run #6: 0.0145s
+run #7: 0.0138s
+run #8: 0.0138s
+run #9: 0.0134s
+run #10: 0.0139s
+AVG:   0.0848s
+  child extends - caching on with duplicate calls
+
+Benchmarking 'employees/with_node_partial_1'...
+run #1: 0.3455s
+run #2: 0.2288s
+run #3: 0.2736s
+run #4: 0.2902s
+run #5: 0.2864s
+run #6: 0.2916s
+run #7: 0.2667s
+run #8: 0.2951s
+run #9: 0.282s
+run #10: 0.285s
+AVG:   0.2845s
+  node partial - caching off
+
+Benchmarking 'employees/with_node_partial_2'...
+run #1: 0.5393s
+run #2: 0.0143s
+run #3: 0.0139s
+run #4: 0.0148s
+run #5: 0.0139s
+run #6: 0.0154s
+run #7: 0.014s
+run #8: 0.0155s
+run #9: 0.0141s
+run #10: 0.042s
+AVG:   0.0697s
+  node partial - caching on
+
+Finished in 45.26 seconds
 6 examples, 0 failures
 ```
