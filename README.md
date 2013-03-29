@@ -5,6 +5,9 @@ $ bundle install
 $ rspec spec
 ```
 
+Actual
+======
+
 ```
 Rabl Cache Benchmarks
 =====================
@@ -56,20 +59,6 @@ run #10: 0.7852s
 AVG:   0.7751s
   child extends - caching on but 100% misses
 
-Benchmarking 'employees/with_child_extends_4'...
-run #1: 0.7373s
-run #2: 0.178s
-run #3: 0.15s
-run #4: 0.1866s
-run #5: 0.1352s
-run #6: 0.184s
-run #7: 0.1452s
-run #8: 0.187s
-run #9: 0.1344s
-run #10: 0.1835s
-AVG:   0.2221s
-  child extends - caching on with duplicate calls
-
 Benchmarking 'employees/with_node_partial_1'...
 run #1: 0.214s
 run #2: 0.2758s
@@ -101,6 +90,9 @@ AVG:   0.44s
 Finished in 56.9 seconds
 6 examples, 0 failures
 ```
+
+Expected
+========
 
 ```
 Rabl Cache Benchmarks
@@ -152,20 +144,6 @@ run #9: 0.7845s
 run #10: 0.7864s
 AVG:   0.7854s
   child extends - caching on but 100% misses
-
-Benchmarking 'employees/with_child_extends_4'...
-run #1: 0.6976s
-run #2: 0.0133s
-run #3: 0.0393s
-run #4: 0.0144s
-run #5: 0.0136s
-run #6: 0.0145s
-run #7: 0.0138s
-run #8: 0.0138s
-run #9: 0.0134s
-run #10: 0.0139s
-AVG:   0.0848s
-  child extends - caching on with duplicate calls
 
 Benchmarking 'employees/with_node_partial_1'...
 run #1: 0.3455s
